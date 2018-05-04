@@ -21,8 +21,8 @@ class ViewController: UIViewController {
         
         mainview.addSubview(v1)
         v1.addSubview(v2)
-        v1.bounds.origin.x += 20
-        v1.bounds.origin.y += 20
+        v1.transform = CGAffineTransform(rotationAngle: 25 * .pi/180)
+        print(v1.frame)
     }
 
     override func didReceiveMemoryWarning() {
