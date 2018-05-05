@@ -27,16 +27,13 @@ class ViewController: UIViewController {
         v2.translatesAutoresizingMaskIntoConstraints = false
         v3.translatesAutoresizingMaskIntoConstraints = false
         
+        let d = ["v2": v2, "v3": v3]
         NSLayoutConstraint.activate([
-            v2.leadingAnchor.constraint(equalTo: v1.leadingAnchor),
-            v2.trailingAnchor.constraint(equalTo: v1.trailingAnchor),
-            v2.topAnchor.constraint(equalTo: v1.topAnchor),
-            v2.heightAnchor.constraint(equalToConstant: 10),
-            v3.widthAnchor.constraint(equalToConstant: 20),
-            v3.heightAnchor.constraint(equalToConstant: 20),
-            v3.trailingAnchor.constraint(equalTo: v1.trailingAnchor),
-            v3.bottomAnchor.constraint(equalTo: v1.bottomAnchor)
-        ])
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|[v2]|", options: [], metrics: nil, views: d),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|[v2(10)]", options: [], metrics: nil, views: d),
+            NSLayoutConstraint.constraints(withVisualFormat: "H:[v3(20)]|", options: [], metrics: nil, views: d),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:[v3(20)]|", options: [], metrics: nil, views: d)
+            ].flatMap{$0})
         
     }
 
