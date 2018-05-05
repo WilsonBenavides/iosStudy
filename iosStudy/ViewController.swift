@@ -13,19 +13,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainview = self.view! //you add this
-        let v1 = UIView(frame:CGRect(x: 113, y: 111, width: 132, height: 194))
-        v1.backgroundColor = UIColor(red: 1, green: 0.4, blue: 1, alpha: 1)
-        let v2 = UIView(frame: v1.bounds)
-        v2.backgroundColor = UIColor(red: 0.5, green: 1, blue: 0, alpha: 1)
+        let lab1 = UILabel(frame: CGRect(x: 313, y: 20, width: 42, height: 22))
+        lab1.autoresizingMask = [.flexibleLeftMargin, .flexibleBottomMargin]
+        lab1.text = "Hello"
         
-        mainview.addSubview(v1)
-        v1.addSubview(v2)
+        let lab2 = UILabel()
+        lab2.translatesAutoresizingMaskIntoConstraints = false
+        lab2.text = "Howdy"
         
-        let r = CGAffineTransform(rotationAngle: 45 * .pi/180)
-        let t = CGAffineTransform(translationX: 100, y: 0)
-        v2.transform = t.concatenating(r)
-        print(v1.frame)
+        self.view.addSubview(lab1)
+        self.view.addSubview(lab2)
+        
+        NSLayoutConstraint.activate([
+            lab2.topAnchor.constraint(equalTo: lab1.bottomAnchor, constant: 20),
+            lab2.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
+        ])
+
     }
 
     override func didReceiveMemoryWarning() {
