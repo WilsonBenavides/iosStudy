@@ -21,7 +21,10 @@ class ViewController: UIViewController {
         
         mainview.addSubview(v1)
         v1.addSubview(v2)
-        v2.transform = CGAffineTransform(translationX: 100, y: 0).rotated(by: 45 * .pi/180)
+        
+        let r = CGAffineTransform(rotationAngle: 45 * .pi/180)
+        let t = CGAffineTransform(translationX: 100, y: 0)
+        v2.transform = t.concatenating(r)
         print(v1.frame)
     }
 
