@@ -27,30 +27,16 @@ class ViewController: UIViewController {
         v2.translatesAutoresizingMaskIntoConstraints = false
         v3.translatesAutoresizingMaskIntoConstraints = false
         
-        v1.addConstraint(
-            NSLayoutConstraint(item: v2, attribute: .leading, relatedBy: .equal, toItem: v1, attribute: .leading, multiplier: 1, constant: 0)
-        )
-        v1.addConstraint(
-            NSLayoutConstraint(item: v2, attribute: .trailing, relatedBy: .equal, toItem: v1, attribute: .trailing, multiplier: 1, constant: 0)
-        )
-        v1.addConstraint(
-            NSLayoutConstraint(item: v2, attribute: .top, relatedBy: .equal, toItem: v1, attribute: .top, multiplier: 1, constant: 0)
-        )
-        v2.addConstraint(
-            NSLayoutConstraint(item: v2, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 10)
-        )
-        v3.addConstraint(
-            NSLayoutConstraint(item: v3, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20)
-        )
-        v3.addConstraint(
-            NSLayoutConstraint(item: v3, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20)
-        )
-        v1.addConstraint(
-            NSLayoutConstraint(item: v3, attribute: .trailing, relatedBy: .equal, toItem: v1, attribute: .trailing, multiplier: 1, constant: 0)
-        )
-        v1.addConstraint(
-            NSLayoutConstraint(item: v3, attribute: .bottom, relatedBy: .equal, toItem: v1, attribute: .bottom, multiplier: 1, constant: 0)
-        )
+        NSLayoutConstraint.activate([
+            v2.leadingAnchor.constraint(equalTo: v1.leadingAnchor),
+            v2.trailingAnchor.constraint(equalTo: v1.trailingAnchor),
+            v2.topAnchor.constraint(equalTo: v1.topAnchor),
+            v2.heightAnchor.constraint(equalToConstant: 10),
+            v3.widthAnchor.constraint(equalToConstant: 20),
+            v3.heightAnchor.constraint(equalToConstant: 20),
+            v3.trailingAnchor.constraint(equalTo: v1.trailingAnchor),
+            v3.bottomAnchor.constraint(equalTo: v1.bottomAnchor)
+        ])
         
     }
 
